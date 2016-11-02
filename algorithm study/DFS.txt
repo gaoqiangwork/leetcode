@@ -1,0 +1,79 @@
+/** 
+ * DFS核心伪代码 
+ * 前置条件是visit数组全部设置成false 
+ * @param n 当前开始搜索的节点 
+ * @param d 当前到达的深度 
+ * @return 是否有解 
+ */ 
+
+BOOL DFS(Node n,int d){
+	if(isEnd(n, d)){
+		return true;
+	}
+	
+	for(Node nextNode in n){
+		if(!visit[nextNode]){
+			visit[nextNode] = true;
+			if(DFS(nextNode, d+1)){
+				return true;
+			}
+			visit[nextNode] = false;
+		}
+	}
+	return false;
+	
+} 
+
+
+
+bool DFS(Node n,int d){
+	if(isFind(node)){
+		return true;
+	}
+	for(Node NextNode in n){
+		visit[NextNode] = true;
+		if(!visit[NextNode]){
+			if(DFS(n,d+1)){
+				return true;
+			}
+			visit[NextNode] = false;
+		}
+	}
+	return false;
+}
+
+
+
+bool DFS(Node n,int d){
+	if(isEnd(Node)){
+		return true;
+	}
+	for(nextNode in n){
+		if(!visit[nextNode]){
+			visit[nextNode] = true;
+			if(DFS(nextNode,d+1)){
+				return true;
+			}
+			visit[nextNode] = false;
+		}
+	}
+	return false;
+}
+
+
+
+bool DFS(Node n,int d){
+	if(isFind(n,d)){
+		return true;
+	}
+	for(Node nextNode in n){
+		if(!visit[nextNode]){
+			visit[nextNode] = true;
+			if(DFS(nextNode,d+1)){
+				return true;
+			}
+			visit[nextNode] = false;
+		}
+	}
+	return false;
+}
