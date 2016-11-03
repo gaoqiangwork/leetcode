@@ -1,0 +1,107 @@
+//第一种方法
+class Solution {
+public:
+    vector<int> countBits(int num) {
+        if (num == 0) return {0};
+        vector<int> res{0, 1};
+        int k = 2, i = 2;
+        while (i <= num) {
+            for (i = pow(2, k - 1); i < pow(2, k); ++i) {
+                if (i > num) break;
+                int t = (pow(2, k) - pow(2, k - 1)) / 2;
+                if (i < pow(2, k - 1) + t) res.push_back(res[i - t]);
+                else res.push_back(res[i - t] + 1);
+            }
+            ++k;
+        }
+        return res;
+    }
+};
+
+
+
+class Solution {
+public:
+    vector<int> countBits(int num) {
+       if(num == 0)
+	   return 0;
+	   if(num == 1)
+	   return 1;
+	   vector<int> res{0,1};
+	   int k = 2,i = 2;
+	   while(k<i)
+	   {
+			for(i = pow(2,k-1);i < pow(2,k);i++)
+			{
+				if(i > num) return;
+				t = (pow(2,k) - pow(2,k-1))/2;
+				if(i < (t+pow(2,k-1)))res.pushback(res[i-t]);
+				else res.pushback(res[i - t] + 1)
+			}
+	   }
+	   return res;
+    }
+};
+
+
+
+class Solution {
+public:
+    vector<int> countBits(int num) {
+        if(num == 0)
+			return {0};
+		vector<int> res{0, 1};
+		int k = 2, i = 2;
+	    while(i <= num){
+			for(i = pow(2, k - 1); i < pow(2, k); ++i)
+			{
+				if(i > num) break;
+				int t = (pow(2, k) - pow(2, k-1)) / 2;
+				if(i < pow(2, k - 1) + t) res.push_back(res[i - t]);
+				else res.push_back(res[i - t] + 1);
+			}
+			++k;
+		}
+		return res;
+    }
+};
+
+//解法3
+class Solution {
+public:
+    vector<int> countBits(int num) {
+        vector<int> res{0};
+        for (int i = 1; i <= num; ++i) {
+            if (i % 2 == 0) res.push_back(res[i / 2]);
+            else res.push_back(res[i / 2] + 1);
+        }
+        return res;
+    }
+};
+
+//解法4
+class Solution {
+public:
+    vector<int> countBits(int num) {
+        vector<int> res(num + 1, 0);
+        for (int i = 1; i <= num; ++i) {
+            res[i] = res[i & (i - 1)] + 1;
+        }
+        return res;
+    }
+};
+
+
+
+
+class Solution {
+public:
+    vector<int> countBits(int num) {
+		vector<int> res(num + 1, 0);
+		for(int i = 1;i <= num; ++i)
+		{
+			res[i] = (res[i] & res[i - 1]) + 1;
+		}
+		return res;
+    }
+};
